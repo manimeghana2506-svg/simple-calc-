@@ -1,0 +1,271 @@
+/* ============================================================
+   PeachCalc Stylesheet
+   Color Palette:
+   - Page background:       #FFF8F0
+   - Calculator background: #FFE3D8
+   - Button background:     #FFFFFF
+   - Operator buttons:      #F4B6A6
+   - Equals button:         #5C3D2E
+   - Equals button text:    #FFF8F0
+   - Main text:             #49352A
+   - Hover accent:          #C8795A
+   - Clear button:          #ECA392 (Terracotta)
+   ============================================================ */
+
+:root {
+  --bg-page: #FFF8F0;
+  --bg-calculator: #FFE3D8;
+  --bg-button: #FFFFFF;
+  --bg-operator: #F4B6A6;
+  --bg-clear: #ECA392;
+  --bg-equals: #5C3D2E;
+  --text-equals: #FFF8F0;
+  --text-main: #49352A;
+  --accent-hover: #C8795A;
+  
+  --shadow-soft: 0 12px 36px rgba(92, 61, 46, 0.12), 0 4px 12px rgba(92, 61, 46, 0.06);
+  --shadow-display: inset 0 2px 6px rgba(92, 61, 46, 0.06);
+  --shadow-button: 0 3px 0 rgba(92, 61, 46, 0.08);
+  --shadow-button-active: 0 1px 0 rgba(92, 61, 46, 0.1);
+  
+  --radius-card: 28px;
+  --radius-display: 18px;
+  --radius-btn: 16px;
+  --font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Base Reset & Layout */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  font-family: var(--font-family);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-x: hidden;
+}
+
+/* Page Wrapper */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  width: 100%;
+  max-width: 440px;
+}
+
+/* Header Section */
+.app-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.app-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--text-main);
+  line-height: 1.2;
+}
+
+.app-subtitle {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--text-main);
+  opacity: 0.85;
+  margin-top: 4px;
+}
+
+/* Calculator Card */
+.calculator-card {
+  width: 100%;
+  background-color: var(--bg-calculator);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-soft);
+  padding: 24px;
+  border: 1px solid rgba(244, 182, 166, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Display Screen */
+.calculator-display {
+  background-color: #FFFFFF;
+  border-radius: var(--radius-display);
+  box-shadow: var(--shadow-display);
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  min-height: 96px;
+  border: 1px solid rgba(92, 61, 46, 0.08);
+  word-break: break-all;
+  overflow: hidden;
+}
+
+.previous-display {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-main);
+  opacity: 0.6;
+  min-height: 1.3rem;
+  margin-bottom: 4px;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.current-display {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.1;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: font-size 0.15s ease;
+}
+
+/* Buttons Grid Layout */
+.buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+/* Common Button Styles */
+.btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: 1.35rem;
+  font-weight: 600;
+  height: 60px;
+  border-radius: var(--radius-btn);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-main);
+  background-color: var(--bg-button);
+  box-shadow: var(--shadow-button);
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(200, 121, 90, 0.22);
+}
+
+.btn:active {
+  transform: translateY(2px);
+  box-shadow: var(--shadow-button-active);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--accent-hover);
+  outline-offset: 2px;
+}
+
+/* Number Buttons */
+.btn-number {
+  background-color: var(--bg-button);
+  color: var(--text-main);
+}
+
+.btn-number:hover {
+  background-color: #FFFDFC;
+  border: 1px solid rgba(200, 121, 90, 0.3);
+}
+
+/* Operator Buttons (+, -, ×, ÷) */
+.btn-operator {
+  background-color: var(--bg-operator);
+  color: var(--text-main);
+  font-size: 1.45rem;
+}
+
+.btn-operator:hover {
+  background-color: #EEA694;
+}
+
+.btn-operator.active-operator {
+  background-color: var(--accent-hover);
+  color: #FFF8F0;
+  box-shadow: inset 0 2px 4px rgba(92, 61, 46, 0.25);
+}
+
+/* Clear Button (Terracotta) */
+.btn-clear {
+  background-color: var(--bg-clear);
+  color: var(--text-main);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.btn-clear:hover {
+  background-color: #E29381;
+}
+
+/* Equals Button (Chocolate Brown) */
+.btn-equals {
+  background-color: var(--bg-equals);
+  color: var(--text-equals);
+  font-size: 1.6rem;
+}
+
+.btn-equals:hover {
+  background-color: #4C3225;
+  box-shadow: 0 5px 14px rgba(92, 61, 46, 0.35);
+}
+
+/* Span Classes */
+.span-two {
+  grid-column: span 2;
+}
+
+.span-three {
+  grid-column: span 3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 380px) {
+  .calculator-card {
+    padding: 16px;
+    border-radius: 22px;
+  }
+  
+  .buttons-grid {
+    gap: 8px;
+  }
+  
+  .btn {
+    height: 52px;
+    font-size: 1.2rem;
+    border-radius: 12px;
+  }
+  
+  .current-display {
+    font-size: 1.85rem;
+  }
+  
+  .app-title {
+    font-size: 1.85rem;
+  }
+}

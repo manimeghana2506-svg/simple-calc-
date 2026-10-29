@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PeachCalc — Simple, Sweet Calculator</title>
+  <meta name="description" content="PeachCalc is a simple, functional calculator with a warm peach-and-chocolate-brown aesthetic.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page-wrapper">
+    <!-- Header with title and subtitle -->
+    <header class="app-header">
+      <h1 class="app-title">PeachCalc</h1>
+      <p class="app-subtitle">Simple calculations, sweeter design.</p>
+    </header>
+
+    <!-- Calculator Card -->
+    <div class="calculator-card" role="region" aria-label="PeachCalc Calculator">
+      <!-- Calculator Display Screen -->
+      <div class="calculator-display" aria-live="polite">
+        <div class="previous-display" id="previousDisplay" aria-hidden="true"></div>
+        <div class="current-display" id="currentDisplay">0</div>
+      </div>
+
+      <!-- Calculator Button Grid -->
+      <div class="buttons-grid">
+        <!-- Row 1 -->
+        <button type="button" class="btn btn-clear span-three" id="btnClear" data-action="clear" aria-label="Clear calculation">C</button>
+        <button type="button" class="btn btn-operator" data-action="operator" data-operator="÷" aria-label="Divide">÷</button>
+
+        <!-- Row 2 -->
+        <button type="button" class="btn btn-number" data-action="number" data-value="7">7</button>
+        <button type="button" class="btn btn-number" data-action="number" data-value="8">8</button>
+        <button type="button" class="btn btn-number" data-action="number" data-value="9">9</button>
+        <button type="button" class="btn btn-operator" data-action="operator" data-operator="×" aria-label="Multiply">×</button>
+
+        <!-- Row 3 -->
+        <button type="button" class="btn btn-number" data-action="number" data-value="4">4</button>
+        <button type="button" class="btn btn-number" data-action="number" data-value="5">5</button>
+        <button type="button" class="btn btn-number" data-action="number" data-value="6">6</button>
+        <button type="button" class="btn btn-operator" data-action="operator" data-operator="-" aria-label="Subtract">-</button>
+
+        <!-- Row 4 -->
+        <button type="button" class="btn btn-number" data-action="number" data-value="1">1</button>
+        <button type="button" class="btn btn-number" data-action="number" data-value="2">2</button>
+        <button type="button" class="btn btn-number" data-action="number" data-value="3">3</button>
+        <button type="button" class="btn btn-operator" data-action="operator" data-operator="+" aria-label="Add">+</button>
+
+        <!-- Row 5 -->
+        <button type="button" class="btn btn-number span-two" data-action="number" data-value="0">0</button>
+        <button type="button" class="btn btn-number" data-action="decimal" data-value=".">.</button>
+        <button type="button" class="btn btn-equals" id="btnEquals" data-action="equals" aria-label="Calculate result">=</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
