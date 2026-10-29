@@ -1,6 +1,6 @@
 # simple-calc-
 
-## PeachCalc 🍑
+## PeachCalc 
 
 A simple, functional calculator web application built with pure HTML, Vanilla CSS, and JavaScript, designed with a warm peach-and-chocolate-brown aesthetic.
 
